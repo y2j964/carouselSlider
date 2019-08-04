@@ -38,7 +38,7 @@ const jumpSliderPosition = () => {
 const activateSlides = () => {
   for (let i = 0; i < slidesPerPosition; i += 1) {
     const slide = slides[sliderX / slideWidth - slidesPerPosition + i];
-    slide.classList.add('swiper-slide--is-active');
+    slide.classList.add('slide--is-active');
     slide.setAttribute('aria-hidden', 'false');
     activeSlides.push(slide);
   }
@@ -47,7 +47,7 @@ const activateSlides = () => {
 const activateEndingPositionSlides = () => {
   for (let i = slides.length - slidesPerPosition; i < slides.length; i += 1) {
     const slide = slides[i];
-    slide.classList.add('swiper-slide--is-active');
+    slide.classList.add('slide--is-active');
     slide.setAttribute('aria-hidden', 'false');
     activeSlides.push(slide);
   }
@@ -55,7 +55,7 @@ const activateEndingPositionSlides = () => {
 
 const deactivateSlides = () => {
   activeSlides.forEach(slide => {
-    slide.classList.remove('swiper-slide--is-active');
+    slide.classList.remove('slide--is-active');
     slide.setAttribute('aria-hidden', 'true');
   });
   // empty array
@@ -110,7 +110,7 @@ const activateResizedSlides = activeSlide => {
   } else {
     for (let i = activeIndex; i < activeIndex + slidesPerPosition; i += 1) {
       const slide = slides[i];
-      slide.classList.add('swiper-slide--is-active');
+      slide.classList.add('slide--is-active');
       slide.setAttribute('aria-hidden', 'false');
       activeSlides.push(slide);
     }
@@ -127,7 +127,7 @@ const initSlideData = slidesPerRow => {
 };
 
 const configureSlider = slidesPerRow => {
-  const activeSlide = document.querySelector('.swiper-slide--is-active');
+  const activeSlide = document.querySelector('.slide--is-active');
   deactivateSlides();
   removeOldSlideDupes();
   initSlideData(slidesPerRow);
